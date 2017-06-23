@@ -301,6 +301,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
 PRODUCT_PACKAGES += \
     FrameworksResTarget \
     SettingsResTarget \
@@ -394,6 +395,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.6.vendor \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
+
+# Reduce system server verbosity.
+PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
 
 # Required for QPR3
 PRODUCT_PACKAGES += \
