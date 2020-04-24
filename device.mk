@@ -314,7 +314,8 @@ PRODUCT_PACKAGES += \
     SettingsProviderResTarget \
     SystemUIResTarget \
     TetheringConfigTarget \
-    TelephonyResTarget
+    TelephonyResTarget \
+    WifiResTarget
 
 # Permissions
 PRODUCT_COPY_FILES += \
