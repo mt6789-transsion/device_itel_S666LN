@@ -313,6 +313,7 @@ PRODUCT_PACKAGES += \
     SettingsResTarget \
     SettingsProviderResTarget \
     SystemUIResTarget \
+    TetheringConfigTarget \
     TelephonyResTarget
 
 # Permissions
