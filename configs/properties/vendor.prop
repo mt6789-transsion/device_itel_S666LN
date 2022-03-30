@@ -146,6 +146,7 @@ ro.vendor.mtk_video_hevc_enc_support=1
 vendor.media.heif.feature.off=1
 vendor.media.heif.highThreshold=20
 vendor.mtk.vdec.waitkeyframeforplay=9
+vendor.media.omx=0
 
 # Mediatek
 ro.vendor.mgk_name=mgk_64_entry_level_k510
