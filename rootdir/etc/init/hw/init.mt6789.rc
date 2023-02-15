@@ -952,3 +952,7 @@ service vendor.hwcomposer-2-3 /vendor/bin/hw/android.hardware.graphics.composer@
     onrestart restart surfaceflinger
     task_profiles ProcessCapacityHigh HighPerformance
     override
+
+# Stop Serial Console
+on boot
+    stop console
