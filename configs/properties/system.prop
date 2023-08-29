@@ -26,6 +26,9 @@ bluetooth.profile.sap.server.enabled=true
 # Camera
 vendor.camera.tran.nums=1
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
 
