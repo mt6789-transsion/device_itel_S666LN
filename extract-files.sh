@@ -107,6 +107,7 @@ function blob_fixup() {
             "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
             ;;
+        vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so|\
         vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
             "$PATCHELF" --replace-needed "libhidlbase.so" "libhidlbase_shim.so" "$2"
             ;;
