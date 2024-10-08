@@ -22,6 +22,7 @@ vendor/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so
 
 # Audio
 vendor/bin/audiocmdservice_atci
+vendor/bin/tran_tinymix
 vendor/etc/init/audiocmdservice_atci.rc
 vendor/lib/hw/audio.primary.mediatek.so
 vendor/lib/hw/audio.r_submix.mediatek.so
@@ -97,6 +98,12 @@ vendor/lib64/libspeechparser_vendor.so
 vendor/lib64/libtinycompress.so
 vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
 vendor/lib64/vendor.mediatek.hardware.audio@7.1.so
+
+# Audio (FX modules)
+vendor/lib/soundfx/libdtsaudio.so
+vendor/lib/libdts-eagle-shared.so
+vendor/lib64/soundfx/libdtsaudio.so
+vendor/lib64/libdts-eagle-shared.so
 
 # Audio Configs
 vendor/etc/audio_param/AudioParamOptions_mgvi.xml
@@ -218,6 +225,35 @@ vendor/etc/audio_param/preset_default.bin
 vendor/etc/audio_param/preset_music.bin
 vendor/etc/audio_param/preset_ringtone.bin
 vendor/etc/audio_param/preset_voip.bin
+
+# Audio DTS 
+vendor/etc/dts/acc/d30de3a0-b177-4822-9c15-816b79545f82_usb_44.bin
+vendor/etc/dts/acc/d30de3a0-b177-4822-9c15-816b79545f82_usb_48.bin
+vendor/etc/dts/beq44
+vendor/etc/dts/beq48
+vendor/etc/dts/ctc
+vendor/etc/dts/current_bluetooth44k
+vendor/etc/dts/current_bluetooth48k
+vendor/etc/dts/current_lineout48k
+vendor/etc/dts/current_speaker48k
+vendor/etc/dts/current_usb44k
+vendor/etc/dts/current_usb48k
+vendor/etc/dts/customer.cfg
+vendor/etc/dts/dts-eagle.lic
+vendor/etc/dts/dts_audio_settings
+vendor/etc/dts/games_accessory44
+vendor/etc/dts/games_accessory48
+vendor/etc/dts/games_speaker48
+vendor/etc/dts/movie_accessory44
+vendor/etc/dts/movie_accessory48
+vendor/etc/dts/movie_speaker48
+vendor/etc/dts/music_accessory44
+vendor/etc/dts/music_accessory48
+vendor/etc/dts/music_speaker48
+vendor/etc/dts/off_speaker48
+vendor/etc/init/dts.rc
+vendor/lib/libdtsdsec.so
+vendor/lib64/libdtsdsec.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.1-service-mediatek
@@ -2678,6 +2714,8 @@ vendor/lib64/vendor.trustonic.tee@1.1.so
 # Thermal
 vendor/bin/hw/android.hardware.thermal@2.0-service.mtk
 vendor/bin/thermal_core
+vendor/bin/thermal_intf
+vendor/etc/dar_thermal_core/thermal_core_config.json
 vendor/etc/init/android.hardware.thermal@2.0-service.mtk.rc
 vendor/etc/init/init.thermal_core.rc
 vendor/etc/thermal/disable_skin_control.conf
@@ -2691,7 +2729,9 @@ vendor/etc/thermal/thermal_policy_02.conf
 vendor/etc/thermal/thermal_policy_08.conf
 vendor/etc/fstb.cfg
 vendor/etc/mpe.conf
+vendor/etc/predthermallevel_rf.json
 vendor/lib/hw/android.hardware.thermal@2.0-impl.so
+vendor/lib/hw/thermal_hal.so
 vendor/lib64/hw/android.hardware.thermal@2.0-impl.so
 vendor/lib64/hw/thermal_hal.so
 
