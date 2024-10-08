@@ -22,6 +22,7 @@ bluetooth.profile.pan.nap.enabled=true
 bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.sap.server.enabled=true
+net.bt.name=itel RS4
 
 # Camera
 vendor.camera.tran.nums=1
