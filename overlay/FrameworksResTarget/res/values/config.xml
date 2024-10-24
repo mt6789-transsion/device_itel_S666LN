@@ -532,5 +532,8 @@
         <item>NR_NSA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>NR_SA:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>NR_SA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608</item>
-    </string-array>    
+    </string-array>
+
+    <!-- Determines whether the shell features all run on another thread. -->
+    <bool name="config_enableShellMainThread">true</bool>
 </resources>
