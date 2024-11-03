@@ -111,9 +111,12 @@ function blob_fixup() {
         vendor/etc/init/init.thermal_core.rc)
             [ "$2" = "" ] && return 0
             sed -i 's|ro.vendor.mtk_thermal_2_0|vendor.thermal.link_ready|g' "${2}"
-           ;;
+            ;;
         vendor/bin/hw/android.hardware.vibrator-service.mediatek)
             "$PATCHELF" --replace-needed "android.hardware.vibrator-V2-ndk_platform.so" "android.hardware.vibrator-V2-ndk.so" "$2"
+            ;;
+        vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml)
+            sed -i 's/1.1/1.2/' "$2"
             ;;
     esac
 }
