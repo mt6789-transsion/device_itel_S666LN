@@ -1772,9 +1772,6 @@ vendor/etc/init/init.wmt_drv.rc
 # Display
 vendor/bin/hw/mt6789/android.hardware.graphics.allocator@4.0-service-mediatek.mt6789
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
-vendor/etc/ft8725_fhdp_dsi_vdo_lce_inx_120hz_x6837_cust_color.xml
-vendor/etc/ft8725_fhdp_dsi_vdo_txd_inx_120hz_x6837_cust_color.xml
-vendor/etc/ili7807s_fhdp_dsi_vdo_tm_tm_120hz_x6837_cust_color.xml
 vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
 -vendor/etc/vintf/manifest/manifest_hwcomposer.xml
