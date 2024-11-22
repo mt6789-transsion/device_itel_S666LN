@@ -101,16 +101,6 @@ function blob_fixup() {
         system_ext/lib64/libsource.so)
             grep -q libshim_ui.so "$2" || "${PATCHELF}" --add-needed libshim_ui.so "${2}"
             ;;
-        vendor/bin/hw/android.hardware.thermal@2.0-service.mtk|\
-        vendor/lib*/hw/android.hardware.thermal@2.0-impl.so)
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
-            ;;
-        vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so|\
-        vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
-            "$PATCHELF" --replace-needed "libhidlbase.so" "libhidlbase_shim.so" "$2"
-            ;;
         system_ext/lib64/libsink.so)
             "${PATCHELF}" --add-needed "libshim_sink.so" "$2"
             ;;
