@@ -125,6 +125,7 @@ debug.hwui.target_cpu_time_percent=30
 
 # Keymaster
 ro.vendor.keymaster_version=5.0
+ro.hardware.kmsetkey=trustonic
 
 # Light
 ro.vendor.transsion.backlight_12bit=1
