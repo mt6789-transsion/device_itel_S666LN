@@ -34,12 +34,12 @@
         <!--BSP: add audio bring up XLQLHAEE-6 by jiaqiong.zhang 20220403 start-->
         <!--BSP: add audio bring up for LGBNHBJY-2 by weicheng.liao 20220419 start-->
         <path name="speaker_2n1_output" value="turnon">
-            <kctl name="Tran_2N1_Speaker_Switch" value="On" />
-            <kctl name="Tran_Aw87xxx_Speaker_Switch" value="On" />
+            <kctl name="Ext_Speaker_Amp Switch" value="1" />
+            <kctl name="FSM_Scene" value="15" />
         </path>
         <path name="speaker_2n1_output" value="turnoff">
-            <kctl name="Tran_2N1_Speaker_Switch" value="Off" />
-            <kctl name="Tran_Aw87xxx_Speaker_Switch" value="Off" />
+            <kctl name="FSM_Scene" value="0" />
+            <kctl name="Ext_Speaker_Amp Switch" value="0" />
         </path>
         <!--BSP: add audio bring up for LGBNHBJY-2 by weicheng.liao 20220419 end-->
         <!--BSP: add audio bring up XLQLHAEE-6 by jiaqiong.zhang 20220403 start-->
@@ -1278,7 +1278,7 @@
         </path>
         <path name="ultrasound-proximity" value="turnon">
             <kctl name="Ultrasound Custom Setting 4" value="1" />
-            <kctl name="Ultrasound Mode" value="1160" />
+            <kctl name="Ultrasound Mode" value="2353" />
         </path>
         <path name="ultrasound-proximity" value="turnoff">
             <kctl name="Ultrasound Mode" value="0"  />
@@ -1286,7 +1286,7 @@
         <path name="ultrasound-proximity-speaker" value="turnon">
             <kctl name="Ultrasound Custom Setting 4" value="1" />
             <kctl name="Ultrasound Debug Mode" value="1" />
-            <kctl name="Ultrasound Mode" value="830" />
+            <kctl name="Ultrasound Mode" value="2350" />
             <kctl name="Ultrasound Log Level" value="7" />
         </path>
         <path name="ultrasound-proximity-speaker" value="turnoff">

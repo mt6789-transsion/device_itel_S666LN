@@ -124,6 +124,7 @@ ro.incremental.enable=yes
 
 # Keymaster
 ro.vendor.keymaster_version=5.0
+ro.hardware.kmsetkey=trustonic
 
 # Light
 ro.vendor.transsion.backlight_12bit=1
@@ -289,14 +290,12 @@ debug.sf.phase_offset_threshold_for_next_vsync_ns=6100000
 debug.sf.enable_egl_image_tracker=0
 ro.config.avoid_gfx_accel=true
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
-ro.surface_flinger.has_HDR_display=true
+ro.surface_flinger.has_HDR_display=false
 ro.surface_flinger.has_wide_color_display=true
-ro.surface_flinger.use_color_management=true
-ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.uclamp.min=130
 ro.surface_flinger.set_idle_timer_ms=3000
 ro.surface_flinger.set_touch_timer_ms=3000
-ro.surface_flinger.max_frame_buffer_acquired_buffers=4
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.protected_contents=true
 
@@ -318,6 +317,9 @@ ro.vendor.mtk_trustonic_tee_support=1
 
 # Thermal
 ro.vendor.mtk_thermal_2_0=1
+
+# Vibrator
+ro.vendor.tran.vibrator.option=single
 
 # WiFi
 ro.vendor.wifi.sap.concurrent.iface=ap1

@@ -329,7 +329,7 @@
             <Limit name="size" min="160x160" max="2560x1440" />
             <Limit name="alignment" value="16x16" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="concurrent-instances" max="16" />
+            <Limit name="concurrent-instances" max="10" />
             <Limit name="performance-point-1920x1088" value="30" />
             <!-- modify CH6IH6921T-651 by liming.bai 20230607 start -->
             <!-- Feature name="bitrate-modes" value="VBR,CBR,CQ" / -->
@@ -339,7 +339,7 @@
             <Limit name="size" min="160x128" max="1920x1088" />
             <Limit name="alignment" value="16x16" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="concurrent-instances" max="16" />
+            <Limit name="concurrent-instances" max="10" />
             <Limit name="performance-point-1920x1088" value="30" />
             <Feature name="special-codec" required="true" />
             <Feature name="bitrate-modes" value="VBR,CBR,CQ" />
@@ -350,7 +350,7 @@
             <Limit name="alignment" value="16x16" />
             <Limit name="block-size" value="16x16" />
             <Limit name="quality" range="0-100" default="50" />
-            <Limit name="concurrent-instances" max="12" />
+            <Limit name="concurrent-instances" max="10" />
             <Feature name="bitrate-modes" value="VBR,CBR,CQ" />
             <Limit name="performance-point-1920x1088" value="30" />
         </MediaCodec>

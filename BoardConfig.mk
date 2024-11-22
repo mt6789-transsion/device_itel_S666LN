@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/X6837
+DEVICE_PATH := device/itel/S666LN
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 CONFIGS_PATH := $(DEVICE_PATH)/configs
 
@@ -45,7 +45,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := x6837
+TARGET_BOOTLOADER_BOARD_NAME := s666ln
 TARGET_NO_BOOTLOADER := true
 
 # Broken Rules
@@ -156,7 +156,7 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := X6837,Infinix-X6837
+TARGET_OTA_ASSERT_DEVICE := S666LN,itel-S666LN
 
 # Touch
 SOONG_CONFIG_NAMESPACES += TRANSSION_TOUCH
@@ -218,4 +218,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 # Inherit the proprietary files
-include vendor/infinix/X6837/BoardConfigVendor.mk
+include vendor/itel/S666LN/BoardConfigVendor.mk
