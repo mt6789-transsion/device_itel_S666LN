@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2024 IrawansProjekt
+     Copyright (C) 2024 gabutuniverse
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -533,7 +533,4 @@
         <item>NR_SA:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>NR_SA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608</item>
     </string-array>
-
-    <!-- Determines whether the shell features all run on another thread. -->
-    <bool name="config_enableShellMainThread">true</bool>
 </resources>
