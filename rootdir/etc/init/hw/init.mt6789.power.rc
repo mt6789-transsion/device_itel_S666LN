@@ -28,10 +28,17 @@ on init
 
     # update cpus for cpuset cgroup
     write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground_window/cpus 0-6
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-3
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
+
+    # Foreground window tasks
+    write /dev/cpuctl/foreground_window/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/foreground_window/cpu.uclamp.min 10
+    write /dev/cpuctl/foreground_window/cpu.uclamp.max max
+    write /dev/cpuctl/foreground_window/cpu.shares 20480
 
     # boot perf. tune
     write /dev/cpuctl/system/cpu.uclamp.min 100
@@ -50,7 +57,7 @@ on init
     write /proc/sys/vm/dirty_background_ratio 7
     write /proc/sys/vm/dirty_ratio 15
     write /proc/sys/vm/dirty_expire_centisecs 2000
-    
+
 on enable-low-power
     write /sys/devices/platform/soc/11270000.ufshci/clkgate_enable 1
     write /proc/sys/kernel/sched_migration_cost_ns 200000
@@ -89,10 +96,16 @@ on enable-low-power
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+
     # camera-daemon
     write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
-    
+
+# End boot time tuning
+on property:sys.boot_completed=1
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "sugov_ext"
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "sugov_ext"
+
 on property:sys.boot_completed=1
     trigger enable-low-power
