@@ -44,6 +44,7 @@
 # Trancam
 /(system\/vendor|vendor)/bin/hw/vendor\.transsion\.hardware\.trancam\.trancamserver@1\.0-service     u:object_r:trancamserver_exec:s0
 /sys/devices/platform/(odm/odm:tran_battery|tran_battery)/tran_cam                              u:object_r:sysfs_tran_cam_file:s0
+/sys/class/sensordrv/tran_imgsensor/tran_imgsensor_info                                            u:object_r:tran_imgsensor_info_file:s0
 
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.transsion           u:object_r:hal_lineage_touch_default_exec:s0

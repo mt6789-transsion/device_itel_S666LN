@@ -1,5 +1,6 @@
 # Camera
 type sysfs_tran_cam_file, fs_type, sysfs_type;
+type tran_imgsensor_info_file, fs_type, sysfs_type;
 type transsion_camera_data_file, file_type, data_file_type, mlstrustedobject;
 type vendor_watermark_data_file, file_type, data_file_type, mlstrustedobject;
 type vendor_arcsoft_data_file, file_type, data_file_type, mlstrustedobject;
