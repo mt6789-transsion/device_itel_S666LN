@@ -50,6 +50,9 @@
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.transsion           u:object_r:hal_lineage_touch_default_exec:s0
 
+# Trancam Data
+/data/vendor/meg_working_dir(/.*)?                                                                 u:object_r:transsion_camera_meghdr_file:s0
+
 # Tranfs
 /dev/block/sdc62                                                                        u:object_r:tranfs_block_device:s0
 
