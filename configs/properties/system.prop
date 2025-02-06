@@ -24,40 +24,16 @@ bluetooth.profile.sap.server.enabled=true
 
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
-
-# Dex / Dalvik
-dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5
-dalvik.vm.boot-dex2oat-threads=6
-dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5
-dalvik.vm.dex2oat-threads=6
-dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5
-dalvik.vm.image-dex2oat-threads=6
 persist.device_config.runtime_native.usap_pool_enabled=false
-persist.sys.minfree_6g=73728,92160,110592,340000,1282868,1677312
-persist.sys.minfree_8g=73728,92160,110592,340000,1677312,2064384
-persist.sys.minfree_def=73728,92160,110592,340000,510000,645120
-pm.dexopt.ab-ota=speed-profile
-pm.dexopt.bg-dexopt=speed-profile
-pm.dexopt.boot=verify
-pm.dexopt.first-boot=verify
-pm.dexopt.install=speed-profile
 
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
-# Kernel
-ro.kernel.zio=38,108,105,16
-
 # IPO
 sys.ipo.disable=1
 sys.ipo.pwrdncap=2
-
-# Memory Optimization
-ro.config.dha_cached_max=32
-ro.config.dha_cached_min=16
-ro.config.per_app_memcg=false
 
 # Misc
 Build.BRAND=MTK
@@ -92,13 +68,6 @@ ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 wifi.tethering.interface=ap0
 wifi.direct.interface=p2p0
-
-# USB
-ro.sys.usb.bicr=no
-ro.sys.usb.charging.only=yes
-ro.sys.usb.mtp.whql.enable=0
-ro.sys.usb.storage.type=mtp
-ro.usb.connect.keycodes=100,200
 
 # ZRAM
 ro.zram.first_wb_delay_mins=1440
