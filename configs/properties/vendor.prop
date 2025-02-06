@@ -156,9 +156,6 @@ ro.vendor.mtk_nn.option=A,B,C,D,E,F,G,Z
 ro.vendor.mtk_nn_baseline_support=1
 ro.vendor.mtk_nn_quant_preferred=1
 
-# OEM Unlock
-ro.oem_unlock_supported=1
-
 # Paytrigger
 ro.hardware.paytrigger=trustonic
 
