@@ -213,7 +213,6 @@ PRODUCT_PACKAGES += \
     init.project.rc \
     init.recovery.usb.rc \
     init.sensor_2_0.rc \
-    init.transsion.rc \
     ueventd.mt6789.rc
 
 # IMS
@@ -453,10 +452,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
-
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.transsion
 
 # USB
 $(call soong_config_set,android_hardware_mediatek_usb,audio_accessory_supported,true)
