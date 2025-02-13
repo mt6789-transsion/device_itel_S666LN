@@ -8,7 +8,14 @@ on charger
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 0
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq 0
     write /sys/class/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq 0
-
+    
+    # Keep one LITTLE and one big
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
 
 on property:vendor.all.modules.ready=1
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
@@ -59,16 +66,30 @@ on init
     write /proc/sys/vm/dirty_ratio 15
     write /proc/sys/vm/dirty_expire_centisecs 2000
 
-on enable-low-power
+    # Adjust watermark level
+    write /proc/sys/vm/watermark_scale_factor 125
+
+on property:sys.boot_completed=1
     write /sys/devices/platform/soc/11270000.ufshci/clkgate_enable 1
     write /proc/sys/kernel/sched_migration_cost_ns 200000
 
+on enable-low-power
     # restore boot perf. tune
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 0
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq 0
     write /sys/class/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq 0
+    write /dev/cpuctl/system/cpu.uclamp.min 0
+    write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/system-background/cpu.uclamp.min 0
+    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/foreground/cpu.uclamp.min 0
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/top-app/cpu.uclamp.min 0
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/background/cpu.uclamp.min 0
+    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
 
-# Configure clamps for standard task groups.
+    # Configure clamps for standard task groups.
     # system-background
     # cap the max utilisation for system-background tasks to save power.
     write /dev/cpuctl/system/cpu.uclamp.max 40
@@ -103,14 +124,9 @@ on enable-low-power
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
 
-# End boot time tuning
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "sugov_ext"
-    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "sugov_ext"
+    trigger enable-low-power
 
     # Uclamp tuning
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
     write /proc/sys/kernel/sched_util_clamp_min 128
-
-on property:sys.boot_completed=1
-    trigger enable-low-power
