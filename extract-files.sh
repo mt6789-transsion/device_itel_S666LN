@@ -113,7 +113,7 @@ function blob_fixup() {
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"
             "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
-            ;;
+            ;;                 
         system_ext/lib64/libsource.so)
             [ "$2" = "" ] && return 0
             grep -q libshim_ui.so "$2" || "${PATCHELF}" --add-needed libshim_ui.so "${2}"
@@ -125,10 +125,14 @@ function blob_fixup() {
         vendor/etc/init/init.thermal_core.rc)
             [ "$2" = "" ] && return 0
             sed -i 's|ro.vendor.mtk_thermal_2_0|vendor.thermal.link_ready|g' "${2}"
-           ;;
+            ;;
         vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml)
             [ "$2" = "" ] && return 0
             sed -i 's/1.1/1.2/' "$2"
+            ;;
+        vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
+            [ "$2" = "" ] && return 0
+            grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
         *)
             return 1
