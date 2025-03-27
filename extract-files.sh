@@ -147,6 +147,20 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
+        vendor/lib64/mt6789/lib3a.flash.so|\
+        vendor/lib64/mt6789/lib3a.ae.stat.so|\
+        vendor/lib64/mt6789/lib3a.sensors.flicker.so|\
+        vendor/lib64/mt6789/lib3a.sensors.color.so|\
+        vendor/lib64/mt6789/libaaa_ltm.so|\
+        vendor/lib64/lib3a.ae.pipe.so|\
+        vendor/lib64/libSQLiteModule_VER_ALL.so)
+            [ "$2" = "" ] && return 0
+            grep -q liblog.so "$2" || "${PATCHELF}" --add-needed "liblog.so" "${2}"
+            ;;
+        vendor/lib64/libmnl.so)
+            [ "$2" = "" ] && return 0
+            grep -q libcutils.so "$2" || "${PATCHELF}" --add-needed "libcutils.so" "${2}"
+            ;;
         *)
             return 1
             ;;
