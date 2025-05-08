@@ -275,4 +275,5 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.wlan_assistant=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.netd=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.HWUI=$(VENDOR_LOG_LEVEL) \
-    persist.log.tag.FrameTracker=$(VENDOR_LOG_LEVEL)
+    persist.log.tag.FrameTracker=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.C2MtkBufferManager=$(VENDOR_LOG_LEVEL)
