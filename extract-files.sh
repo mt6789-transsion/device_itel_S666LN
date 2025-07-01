@@ -168,6 +168,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             grep -q libcutils.so "$2" || "${PATCHELF}" --add-needed "libcutils.so" "${2}"
             ;;
+        vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
         *)
             return 1
             ;;
