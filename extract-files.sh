@@ -122,7 +122,7 @@ function blob_fixup() {
             ;;
         system_ext/lib64/libsink.so)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --add-needed "libshim_sink.so" "$2"
+            "${PATCHELF}" --add-needed "libshim_sink.so" "${2}"
             ;;
         vendor/etc/init/init.thermal_core.rc)
             [ "$2" = "" ] && return 0
@@ -134,6 +134,10 @@ function blob_fixup() {
         vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml)
             [ "$2" = "" ] && return 0
             sed -i 's/1.1/1.2/' "$2"
+            ;;
+        vendor/lib64/hw/hwcomposer.mtk_common.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
             ;;
         *)
             return 1
