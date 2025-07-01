@@ -139,6 +139,14 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
             ;;
+        vendor/lib64/mt6789/libneuralnetworks_sl_driver_mtk_prebuilt.so|\
+        vendor/lib*/libstfactory-vendor.so|\
+        vendor/lib*/libnvram.so|\
+        vendor/lib*/libsysenv.so|\
+        vendor/lib*/libtflite_mtk.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
+            ;;
         *)
             return 1
             ;;
