@@ -35,7 +35,6 @@ $(DISPLAY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@ln -sf $(TARGET_BOARD_PLATFORM)/$(notdir $@).$(TARGET_BOARD_PLATFORM) $@
 
 GATEKEEPER_TRUSTONIC_SYMLINKS := \
-	$(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.trustonic.so \
 	$(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.trustonic.so
 
 $(GATEKEEPER_TRUSTONIC_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -43,7 +42,6 @@ $(GATEKEEPER_TRUSTONIC_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@ln -sf libMcGatekeeper.so $@
 
 GATEKEEPER_DEFAULT_SYMLINKS := \
-	$(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.default.so \
 	$(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.default.so \
 
 $(GATEKEEPER_DEFAULT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -51,7 +49,6 @@ $(GATEKEEPER_DEFAULT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@ln -sf libSoftGatekeeper.so $@
 
 KEYMASTER_SYMLINKS := \
-	$(TARGET_OUT_VENDOR)/lib/hw/kmsetkey.default.so \
 	$(TARGET_OUT_VENDOR)/lib64/hw/kmsetkey.default.so
 
 $(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
