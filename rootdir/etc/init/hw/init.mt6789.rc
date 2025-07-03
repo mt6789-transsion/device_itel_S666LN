@@ -5,6 +5,7 @@ import /vendor/etc/init/hw/init.sensor_2_0.rc
 import /vendor/etc/init/hw/init.mt6789.power.rc
 import /vendor/etc/init/hw/init.transsion.rc
 import /vendor/etc/init/hw/init.modem.rc
+<<<<<<< HEAD
 
 on init
     # dex2oat_threads add by dewang.tan 20231227 start
@@ -14,6 +15,13 @@ on init
     #MD:add XLQYXLQS-5252 for tranfs by xiaoxiang.xiong 20220404 start
     mkdir /tranfs 0771 system system
     #MD:add XLQYXLQS-5252 for tranfs by xiaoxiang.xiong 20220404 end
+=======
+# *** DO NOT import the new rc file after this line ***
+
+on init
+    # if primary storage is physical, set ro.vold.primary_physical to 1
+    # setprop ro.vold.primary_physical 1
+>>>>>>> af237a5 (mt6789-common: init: Remove references to bootprof)
 
     # change lk_env permission
     chown root system /proc/lk_env
@@ -24,7 +32,11 @@ on init
     write /proc/sys/net/core/rmem_max 8388608
 
 on late-init
+<<<<<<< HEAD
     # enable rcu_expedited
+=======
+# enable rcu_expedited
+>>>>>>> af237a5 (mt6789-common: init: Remove references to bootprof)
     write /sys/kernel/rcu_expedited 1
 
 on charger
@@ -62,16 +74,6 @@ on charger
 
     start vendor.lights
 
-    # Stop bootprof
-    write /proc/bootprof "0"
-
-# initialize powerHAL when boot is completed
-on property:sys.boot_completed=1
-    setprop vendor.powerhal.init 1
-
-on early-fs
-    write /proc/bootprof "INIT:early-fs"
-
 on fs
     mount_all --early
 
@@ -102,9 +104,6 @@ on post-fs
 
 on post-fs-data
     wait_for_prop vendor.all.modules.ready 1
-
-    # Disable watermark boost
-    write /proc/sys/vm/watermark_boost_factor 0
 
     # boot time fs tune
     write /sys/block/mmcblk0/queue/read_ahead_kb 2048
@@ -599,8 +598,13 @@ on post-fs-data
 	# Widevine driver node
 	chmod 0660 /dev/drm_wv
 	chown media system /dev/drm_wv
-
+	
+# End of adding by MTK drivers
+# -----------------------
 on boot
+    # start EAS+
+    write /sys/devices/system/cpu/eas/enable 1
+    
     write /proc/sys/vm/dirty_writeback_centisecs 300
     chmod 0660 /sys/power/autosleep
 
@@ -764,41 +768,8 @@ on property:sys.boot_completed=1
     write /sys/block/dm-5/queue/read_ahead_kb 128
 
 on property:sys.boot_completed=1
-    write /proc/bootprof 0
-
-#service dpfd /vendor/bin/dpfd
-#	user root
-#	group system media
-
-#
-#  External Modme control related services
-#
-
-#
-#  Modem related services (Begin)
-#
-##Add by T.Zh for ppp daemon
-#service pppd /system/bin/pppd file /data/misc/ppp/ppp_options
-#    user root
-#    disabled
-#    oneshot
-#
-##
-#
-#  Modem related services (End)
-#
-
-#add for power-off alarm
-#service poad /vendor/bin/poad
-#    class main
-#    user system
-#    group system
-#    oneshot
-
-#service BGW /vendor/xbin/BGW
-#	user system
-#	group gps system radio
-#	class main
+    write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1 -1 -1"
+    write /sys/devices/platform/boot_dramboost/dramboost/dramboost 0
 
 # Battery info
 on property:persist.vendor.mediatek.fg.disable=1
@@ -812,22 +783,6 @@ on property:persist.vendor.mediatek.fg.force25c=0
 
 on property:persist.vendor.mediatek.fg.log.enable=1
     write /dev/gauge/FG_daemon_log_level 7
-
-# add meta_tst for ATM
-service meta_tst /vendor/bin/meta_tst
-    class core
-    user root
-    group radio gps system wifi audio bluetooth media
-    capabilities NET_RAW NET_ADMIN
-    socket meta-atci stream 660 radio system
-    disabled
-    oneshot
-
-# start meta_tst for ATM
-on property:sys.boot_completed=1 && property:ro.boot.atm=enable
-    start meta_tst
-    start loghidlvendorservice
-    start loghidlsysservice
 
 # reset mdmode when modem crash happens in ATM
 on property:vendor.mtk.md1.status=reset
