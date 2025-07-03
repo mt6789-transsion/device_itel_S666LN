@@ -5,24 +5,8 @@ import /vendor/etc/init/hw/init.sensor_2_0.rc
 import /vendor/etc/init/hw/init.mt6789.power.rc
 import /vendor/etc/init/hw/init.transsion.rc
 import /vendor/etc/init/hw/init.modem.rc
-<<<<<<< HEAD
 
 on init
-    # dex2oat_threads add by dewang.tan 20231227 start
-    setprop persist.vendor.powerhal.dex2oat_threads 0
-    # dex2oat_threads add by dewang.tan 20231227 end
-
-    #MD:add XLQYXLQS-5252 for tranfs by xiaoxiang.xiong 20220404 start
-    mkdir /tranfs 0771 system system
-    #MD:add XLQYXLQS-5252 for tranfs by xiaoxiang.xiong 20220404 end
-=======
-# *** DO NOT import the new rc file after this line ***
-
-on init
-    # if primary storage is physical, set ro.vold.primary_physical to 1
-    # setprop ro.vold.primary_physical 1
->>>>>>> af237a5 (mt6789-common: init: Remove references to bootprof)
-
     # change lk_env permission
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
@@ -32,11 +16,7 @@ on init
     write /proc/sys/net/core/rmem_max 8388608
 
 on late-init
-<<<<<<< HEAD
     # enable rcu_expedited
-=======
-# enable rcu_expedited
->>>>>>> af237a5 (mt6789-common: init: Remove references to bootprof)
     write /sys/kernel/rcu_expedited 1
 
 on charger
