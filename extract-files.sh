@@ -121,14 +121,6 @@ function blob_fixup() {
             "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
             grep -q libutils-shim.so "${2}" || "${PATCHELF}" --add-needed libutils-shim.so "${2}"
             ;;
-        system_ext/lib64/libsource.so)
-            [ "$2" = "" ] && return 0
-            grep -q libshim_ui.so "$2" || "${PATCHELF}" --add-needed libshim_ui.so "${2}"
-            ;;
-        system_ext/lib64/libsink.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --add-needed "libshim_sink.so" "${2}"
-            ;;
         vendor/etc/init/init.thermal_core.rc)
             [ "$2" = "" ] && return 0
             sed -i 's|ro.vendor.mtk_thermal_2_0|vendor.thermal.link_ready|g' "${2}"
