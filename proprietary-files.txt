@@ -1946,8 +1946,8 @@ vendor/bin/muxreport
 vendor/bin/starter
 vendor/bin/stp_dump3
 vendor/bin/xcap
-vendor/etc/apdb/APDB_MT6789___W2233
-vendor/etc/apdb/APDB_MT6789___W2233_ENUM
+vendor/etc/apdb/APDB_MT6789___W2333
+vendor/etc/apdb/APDB_MT6789___W2333_ENUM
 vendor/etc/init/gsm0710muxd.rc
 vendor/etc/init/init.cccifsd.rc
 vendor/etc/init/init.cccimdinit.rc
