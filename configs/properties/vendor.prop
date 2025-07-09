@@ -88,7 +88,7 @@ ro.hardware.gatekeeper=trustonic
 # Graphics
 debug.graphics.game_default_frame_rate.disabled=true
 debug.mediatek.disp_decompress=1
-debug.renderengine.backend=threaded
+debug.renderengine.backend=skiaglthreaded
 debug.sf.disable_backpressure=1
 graphics.gpu.profiler.support=true
 ro.hardware.egl=meow
@@ -113,7 +113,7 @@ ro.incremental.enable=yes
 
 # HWUI
 debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=30
+debug.hwui.target_cpu_time_percent=60
 
 # Keymaster
 ro.vendor.keymaster_version=5.0
@@ -122,13 +122,12 @@ ro.vendor.keymaster_version=5.0
 ro.vendor.transsion.backlight_12bit=1
 
 # LMK
-ro.lmk.kill_heaviest_task=true
-ro.lmk.kill_timeout_ms=100
 ro.lmk.psi_complete_stall_ms=150
 ro.lmk.swap_free_low_percentage=20
-ro.lmk.swap_util_max=90
 ro.lmk.thrashing_limit=30
 ro.lmk.thrashing_limit_decay=50
+ro.lmk.swap_util_max=90
+ro.lmk.kill_timeout_ms=100
 
 # Media
 media.c2.dmabuf.padding=3072
@@ -147,7 +146,7 @@ ro.vendor.mgk_name=mgk_64_entry_level_k510
 ro.vendor.mgvi_name=mgvi_64_nfc_armv82
 ro.vendor.mediatek.platform=MT6789
 ro.vendor.mediatek.version.branch=alps-mp-s0.mp1
-ro.vendor.mediatek.version.release=alps-mp-s0.mp1.rc-V15.102_reallytek.s0mp1rc.k61v1.64.bsp_P46
+ro.vendor.mediatek.version.release=alps-mp-s0.mp1-V15.175_reallytek_wsr_s0mp1rc_P8
 
 # Misc
 persist.vendor.kernel.version=5
@@ -287,27 +286,6 @@ ro.surface_flinger.set_display_power_timer_ms=1000
 ro.surface_flinger.set_idle_timer_ms=100
 ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
-vendor.debug.sf.cpupolicy=0
-vendor.debug.sf.cpupolicy.base_min_bl=310
-vendor.debug.sf.cpupolicy.hw_comp_suspend=1
-vendor.debug.sf.cpupolicy.hw_hfr_suspend=1
-vendor.debug.sf.cpupolicy.lowbound_uclamp_min=165
-vendor.debug.sf.cpupolicy.max_correct_offset=150
-vendor.debug.sf.cpupolicy.min_120=165
-vendor.debug.sf.cpupolicy.min_30_mml=165
-vendor.debug.sf.cpupolicy.min_60=130
-vendor.debug.sf.cpupolicy.min_60_mml=165
-vendor.debug.sf.cpupolicy.min_90=165
-vendor.debug.sf.cpupolicy.min_boost=165
-vendor.debug.sf.cpupolicy.power_down_120=300000
-vendor.debug.sf.cpupolicy.power_up_120=-300000
-vendor.debug.sf.cpupolicy.re_hfr=0
-vendor.debug.sf.cpupolicy.rt_bl_min=300
-vendor.debug.sf.cpupolicy.sf_cpu_thres=290
-vendor.debug.sf.cpupolicy.upbound_uclamp_max_ll=262
-vendor.debug.sf.cpupolicy.upbound_uclamp_min=350
-vendor.debug.sf.cpupolicy.upbound_uclamp_ret_sys=210
-vendor.debug.sf.cpupolicy.xgf_min=25
 
 # Storage
 external_storage.casefold.enabled=1
@@ -327,6 +305,9 @@ ro.vendor.mtk_trustonic_tee_support=1
 
 # Thermal
 ro.vendor.mtk_thermal_2_0=1
+
+# Vibrator
+ro.vendor.tran.vibrator.option=single
 
 # WiFi
 ro.vendor.wifi.sap.concurrent.iface=ap1

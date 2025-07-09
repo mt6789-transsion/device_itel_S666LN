@@ -7,8 +7,8 @@
 
 set -e
 
-DEVICE=X6837
-VENDOR=infinix
+DEVICE=S666LN
+VENDOR=itel
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -145,6 +145,10 @@ function blob_fixup() {
         vendor/lib*/libtflite_mtk.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
+            ;;
+        vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
+            [ "$2" = "" ] && return 0
+            grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
         *)
             return 1

@@ -1,10 +1,10 @@
-# Device tree for the Infinix HOT 40 Pro (X6837)
+# Device tree for the itel RS4 (S666LN)
 
 ## Device specifications
 
 | Basic                   | Spec                                                        |
 | ----------------------- | :---------------------------------------------------------- |
-| SoC                     | MediaTek Helio G99 (6nm)                                    |
+| SoC                     | MediaTek Helio G99 Ultimate (6nm)                           |
 | CPU                     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)     |
 | GPU                     | Mali-G57 MC2                                                |
 | Memory                  | 8GB / 12GB                                                  |
@@ -12,14 +12,12 @@
 | Storage                 | 128GB / 256GB                                               |
 | MicroSD                 | MicroSDXC                                                   |
 | Battery                 | Non-removable Li-Po 5000 mAh                                |
-| Dimensions              | 168.6 x 76.6 x 8.3 mm                                       |
-| Display                 | 1080 x 2460 pixels, 6.78 inches                             |
-| Rear Camera 1           | 108 MP, f/1.8, (wide), 0.64µm, AF                           |
-| Rear Camera 2           | 2 MP, f/2.4, (macro)                                        |
-| Rear Camera 3           | QVGA                                                        |
-| Front Camera            | 32 MP, f/2.2, (wide)                                        |
+| Dimensions              | 8.2 mm thickness                                            |
+| Display                 | 720 x 1612 pixels, 20:9 ratio (~269 ppi density)            |
+| Rear Camera 1           | 50 MP, f/1.6, (wide), AF                                    |
+| Front Camera            | 8 MP                                                        |
 
 
 ## Device Picture
 
-![Infinix HOT 40 Pro](https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot-40-pro-1.jpg)
+![itel RS4](https://fdn2.gsmarena.com/vv/pics/itel/itel-rs4-1.jpg)

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/X6837
+DEVICE_PATH := device/itel/S666LN
 KERNEL_PATH := $(DEVICE_PATH)-kernel
 CONFIGS_PATH := $(DEVICE_PATH)/configs
 
@@ -57,7 +57,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := Infinix-X6837
+TARGET_BOOTLOADER_BOARD_NAME := S666LN
 TARGET_NO_BOOTLOADER := true
 
 # Broken Rules
@@ -69,7 +69,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
 
 # Display
-TARGET_SCREEN_DENSITY := 392
+TARGET_SCREEN_DENSITY := 292
 
 # Kernel
 TARGET_NO_KERNEL_OVERRIDE := true
@@ -151,10 +151,10 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := X6837,Infinix-X6837
+TARGET_OTA_ASSERT_DEVICE := S666LN,itel-S666LN
 
 # Vendor Security Patch
-VENDOR_SECURITY_PATCH := 2025-06-05
+VENDOR_SECURITY_PATCH := 2025-01-05
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -212,4 +212,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 # Inherit the proprietary files
-include vendor/infinix/X6837/BoardConfigVendor.mk
+include vendor/itel/S666LN/BoardConfigVendor.mk

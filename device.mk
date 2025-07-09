@@ -247,10 +247,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.transsion
 
-# Lineage-Specific Overlays
-PRODUCT_PACKAGES += \
-	ApertureOverlay
-
 # Linker config
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json
@@ -452,10 +448,6 @@ PRODUCT_PACKAGES += \
 
 # ViPER4Android
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
-    
-# Vendor service manager
-PRODUCT_PACKAGES += \
-    vndservicemanager
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -505,4 +497,4 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/infinix/X6837/X6837-vendor.mk)
+$(call inherit-product, vendor/itel/S666LN/S666LN-vendor.mk)
