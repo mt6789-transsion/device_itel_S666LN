@@ -69,17 +69,18 @@ PRODUCT_PACKAGES += \
     audio.usb.default:64
 
 PRODUCT_PACKAGES += \
-    audio_policy.stub:64 \
-    libopus.vendor:64 \
-    audioclient-types-aidl-cpp.vendor:64 \
-    libaudioroute.vendor:64 \
-    libaudiofoundation.vendor:64 \
-    libbluetooth_audio_session:64 \
-    libnbaio_mono:64 \
-    libtinycompress:64 \
-    libdynproc:64 \
-    libhapticgenerator:64 \
-    libprocessgroup.vendor:64
+    audio_policy.stub \
+    libopus.vendor \
+    audioclient-types-aidl-cpp.vendor \
+    libaudioroute.vendor \
+    libaudiofoundation.vendor \
+    libbluetooth_audio_session \
+    libalsautils \
+    libnbaio_mono \
+    libtinycompress \
+    libdynproc \
+    libhapticgenerator \
+    libprocessgroup.vendor
 
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer \
@@ -89,14 +90,11 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_param/SpeechVol_AudioParam.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_param/SpeechVol_AudioParam.xml
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
