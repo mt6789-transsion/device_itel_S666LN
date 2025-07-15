@@ -146,9 +146,14 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libbase_shim.so" "${2}"
             ;;
+        vendor/lib64/hw/gf_fingerprint.default.so)
+            [ "$2" = "" ] && return 0
+            sed -i 's/libfingerprint.default.so/gf_fingerprint.default.so/' "${2}"
+            ;;
         vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
             [ "$2" = "" ] && return 0
-            grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
+            "{$PATCHELF}" --remove-needed "libhidlbase.so" "${2}"
+            sed -i "s/libhidltransport.so/libhidlbase-v32.so\x00/" "${2}"
             ;;
         *)
             return 1
