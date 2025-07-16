@@ -454,7 +454,7 @@ $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator-service.mediatek
+    android.hardware.vibrator-service.s666ln
 
 # VNDK
 PRODUCT_PACKAGES += \
