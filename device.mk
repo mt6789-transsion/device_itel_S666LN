@@ -454,22 +454,22 @@ $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator-service.s666ln
+    android.hardware.vibrator-V2-ndk.vendor
 
 # VNDK
 PRODUCT_PACKAGES += \
     libbase_shim \
     libprocessgroup_shim \
     libstagefright_foundation-v33 \
-    libutils-shim \
-    libutils-v32.transsion \
-    libhidlbase-v32.vendor
+    libhidlbase-v32.vendor \
+    libhidlbase-v31 \
+    libutils-v31
 
 PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v32/arm64/arch-arm-armv8-a/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_VENDOR)/lib/libbinder-v32.so \
-    prebuilts/vndk/v32/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v32.so \
-    prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbinder-v32.so \
-    prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so \
+    prebuilts/vndk/v31/arm64/arch-arm-armv8-a/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_VENDOR)/lib/libbinder-v31.so \
+    prebuilts/vndk/v31/arm64/arch-arm-armv8-a/shared/llndk-stub/liblog.so:$(TARGET_COPY_OUT_VENDOR)/lib/liblog-v31.so \
+    prebuilts/vndk/v31/arm64/arch-arm64-armv8-a/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbinder-v31.so \
+    prebuilts/vndk/v31/arm64/arch-arm64-armv8-a/shared/llndk-stub/liblog.so:$(TARGET_COPY_OUT_VENDOR)/lib64/liblog-v31.so
 
 PRODUCT_PACKAGES += \
     libunwindstack.vendor \

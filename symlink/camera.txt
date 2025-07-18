@@ -311,6 +311,7 @@ lib64/libaibc_tuning_p2.so
 lib64/libaibc_tuning_p3.so
 lib64/libaibc_tuning_p4.so
 lib64/libaidepth_tuning.so
+lib64/libaiselector.so
 lib64/libamipengine.so
 lib64/libanc_night.so
 lib64/libarcsoft_high_dynamic_range.so
@@ -323,6 +324,7 @@ lib64/libcolorlevel.so
 lib64/libdenoise.so
 lib64/libdip_drv.so
 lib64/libdip_postproc.so
+lib64/libDR.so
 lib64/libeffecthal.base.so
 lib64/libeffect_hal.so
 lib64/libeyedetector.so

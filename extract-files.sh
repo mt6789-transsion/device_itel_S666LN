@@ -67,9 +67,9 @@ function blob_fixup() {
         vendor/lib*/hw/mt6789/vendor.mediatek.hardware.pq@2.15-impl.so|\
         vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.transsion.so" "${2}"
+            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v31.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v31.so" "${2}"
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v31.so" "${2}"
             ;;
         vendor/etc/init/android.hardware.media.c2@1.2-mediatek.rc)
             [ "$2" = "" ] && return 0
@@ -107,19 +107,18 @@ function blob_fixup() {
             ;;
         vendor/lib64/hw/mt6789/android.hardware.camera.provider@2.6-impl-mediatek.so)
             [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v31.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v31.so" "${2}"
             grep -q libshim_camera_metadata.so "${2}" || "${PATCHELF}" --add-needed libshim_camera_metadata.so "${2}"
             ;;
         vendor/lib64/hw/mt6789/vendor.mediatek.hardware.camera.isphal@1.0-impl.so|\
         vendor/lib64/hw/mt6789/vendor.mediatek.hardware.camera.isphal@1.1-impl.so|\
-        vendor/lib64/libmtkcam_stdutils.so|\
-        vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so|\
         vendor/bin/hw/mt6789/camerahalserver)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.transsion.so" "${2}"
-            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v31.so" "${2}"
+            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v31.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v31.so" "${2}"
             "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "${2}"
-            grep -q libutils-shim.so "${2}" || "${PATCHELF}" --add-needed libutils-shim.so "${2}"
             ;;
         vendor/etc/init/init.thermal_core.rc)
             [ "$2" = "" ] && return 0
@@ -153,7 +152,12 @@ function blob_fixup() {
         vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
             [ "$2" = "" ] && return 0
             "{$PATCHELF}" --remove-needed "libhidlbase.so" "${2}"
-            sed -i "s/libhidltransport.so/libhidlbase-v32.so\x00/" "${2}"
+            sed -i "s/libhidltransport.so/libhidlbase-v31.so\x00/" "${2}"
+            ;;
+        vendor/bin/hw/android.hardware.vibrator-service.mediatek)
+            [ "$2" = "" ] && return 0
+            "$PATCHELF" --replace-needed "android.hardware.vibrator-V2-ndk_platform.so" "android.hardware.vibrator-V2-ndk.so" "$2"
+            "$PATCHELF" --replace-needed "liblog.so" "liblog-v31.so" "${2}"
             ;;
         *)
             return 1
