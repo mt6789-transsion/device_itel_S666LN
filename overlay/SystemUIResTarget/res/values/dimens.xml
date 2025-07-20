@@ -41,8 +41,8 @@
     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
          navigation_extra_key_width -->
     <dimen name="navigation_side_padding">85.0dip</dimen>
-    <dimen name="rounded_corner_content_padding">0.0dp</dimen>
-    <dimen name="status_bar_padding_end">0dp</dimen>
-    <dimen name="status_bar_padding_start">17dp</dimen>
-    <dimen name="status_bar_padding_top">10dp</dimen>
+    <dimen name="rounded_corner_content_padding">10dp</dimen>
+    <dimen name="status_bar_padding_end">8dp</dimen>
+    <dimen name="status_bar_padding_start">18dp</dimen>
+    <dimen name="status_bar_padding_top">9dp</dimen>
 </resources>
