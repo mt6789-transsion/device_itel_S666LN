@@ -1678,10 +1678,6 @@ vendor/lib64/vendor.transsion.hardware.tranlog@1.0.so
 vendor/lib64/vendor.transsion.hardware.tranlogconfig@1.0.so
 
 # Vibrator
-vendor/bin/hw/android.hardware.vibrator-service.mediatek
-vendor/etc/init/vibrator-mtk-default.rc
-vendor/lib/libvibrator.so
-vendor/lib/hw/vibrator.default.so
 vendor/lib64/libvibrator.so
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/hw/haptic_core.default.so

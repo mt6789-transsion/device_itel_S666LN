@@ -154,11 +154,6 @@ function blob_fixup() {
             "{$PATCHELF}" --remove-needed "libhidlbase.so" "${2}"
             sed -i "s/libhidltransport.so/libhidlbase-v31.so\x00/" "${2}"
             ;;
-        vendor/bin/hw/android.hardware.vibrator-service.mediatek)
-            [ "$2" = "" ] && return 0
-            "$PATCHELF" --replace-needed "android.hardware.vibrator-V2-ndk_platform.so" "android.hardware.vibrator-V2-ndk.so" "$2"
-            "$PATCHELF" --replace-needed "liblog.so" "liblog-v31.so" "${2}"
-            ;;
         *)
             return 1
             ;;
